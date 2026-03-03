@@ -20,7 +20,7 @@ const db = new sqlite3.Database('./db/app.db', (err) => {
 // CONSTANTS
 const PORT = process.env.PORT || 3000;
 const SESSION_SECRET = process.env.SESSION_SECRET || 'your_secret_key';
-const AUTH_URL = process.env.AUTH_URL || 'https://formbeta.yorktechapps.com';
+const AUTH_URL = process.env.AUTH_URL || 'https://formbar.yorktechapps.com';
 const THIS_URL = process.env.THIS_URL || `http://localhost:${PORT}`;
 const API_KEY = process.env.API_KEY || 'your_api_key';
 
@@ -96,7 +96,7 @@ app.get('/2048', isAuthenticated, (req, res) => {
                 <li class="innerli">Removed unnecessary game loop</li>
             </details>`,
         game: '2048',
-        preview: `<img src="/2048/2048preview.png" alt="2048 Logo" height="500">`,
+        preview: `<img src="/2048/2048preview.png" alt="2048 preview" height="500">`,
         playButton: `<button id="button" onclick="window.location.href='/game_2048'">Play</button>`,
         guide: `Use the arrow keys to move the tiles. When two tiles with the same number touch, they merge into a
                 greater one! The goal is to create a tile with the number 2048. Be careful, though: if the board fills
@@ -135,8 +135,49 @@ app.get('/2048', isAuthenticated, (req, res) => {
     res.render('page', { user: req.session.user, pageName: 'Gamebar', version: 'v0.1.7', data: data });
 });
 
+app.get('/snake', isAuthenticated, (req, res) => {
+    const data = {
+        description: `Based on the classic online game, users simply have the goal of eating as many apples and growing as big as possible without crossing over their own tail or hitting the borders. <br><br> This project was one of the first ideas for GameBar, and was officially started by Jan, becoming the second completed GameBar game!`,
+        developer: 'Jan Cruz-Valentin',
+        changelog: `<details>
+                <summary class="summaries">Changelog</summary>
+                <hr style="border: solid 1px #4d664d; margin-top: 5px; margin-bottom: 10px;">
+                <div class="changelog-header">v1.0.0 - Snake Released- 2/14/2026</div>
+                <li class="innerli">Initial release of Snake on Gamebar</li>
+            </details>`,
+        game: 'Snake',
+        preview: `<img src="/snake/snakepreview.png" alt="Snake Logo" height="500">`,
+        playButton: `<button id="button" onclick="window.location.href='/game_snake'">Play</button>`,
+        guide: `Use the arrow keys to move the snake in the desired direction. Eat the red apples to grow longer, but be careful not to run into your own tail or the walls!`,
+        specifics: ` <details>
+                <summary class="summaries">Specifics</summary>
+                <hr style="border: solid 1px #4d664d; margin-top: 5px; margin-bottom: 10px;">
+                <h3>Keybinds:</h3>
+                <li class="innerli">[▲] 'ArrowUp' - Move snake up</li>
+                <li class="innerli">[▼] 'ArrowDown' - Move snake down</li>
+                <li class="innerli">[◄] 'ArrowLeft' - Move snake left</li>
+                <li class="innerli">[►] 'ArrowRight' - Move snake right</li>
+
+                <h3>Wordified Logic:</h3>
+                <li class="innerli">Upon start: Difficulty and map size are selected, then game loop begins. Canvas is drawn and redrawn every frame (background, snake, apple, and score)</li>
+                <li class="innerli">On keypress: Detects if Arrow key. If true, changes direction of snake accordingly.</li>
+                <li class="innerli">Every frame, snake moves 1 unit in current direction. If it collides with apple, it grows and a
+                    new apple is spawned. If it collides with itself or the border, it's game over and overlay is drawn.</li>
+                <li class="innerli">If the snake does not collide with itself or the border, and manages to fill the board, the player wins.</li>
+                
+                
+            </details>`,
+    }
+    res.render('page', { user: req.session.user, pageName: 'Gamebar', version: 'v0.1.7', data: data });
+}
+);
+
 app.get('/game_2048', isAuthenticated, (req, res) => {
     res.render('games/2048/game_2048', { user: req.session.user, pageName: '2048', version: 'v1.1.1' });
+});
+
+app.get('/game_snake', isAuthenticated, (req, res) => {
+    res.render('games/snake/game_snake', { user: req.session.user, pageName: 'Snake', version: 'v1.0.0' });
 });
 
 app.get('/logout', (req, res) => {
