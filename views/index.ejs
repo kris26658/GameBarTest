@@ -11,6 +11,10 @@
     <head>
         <title>Gamebar - Home</title>
         <style>
+            ::-webkit-scrollbar {
+                width: 0px;
+            }
+            
             .game-button {
                 width: 150px;
                 height: 150px;
@@ -95,7 +99,7 @@
             new Button('/2048', '2048/logo2048.png', '2048'),
             new Button('/snake', 'snake/logoSnake.png', 'Snake'),
             new Button('/stack', 'stack/logoStack.png', 'Stack'),
-            new Button('/alchemy', 'index/testing.png', 'Alchemy')
+            new Button('/alchemy', 'alchemy/logoAlchemy.png', 'Alchemy')
         ];
 
         buttons.forEach(button => {
@@ -146,46 +150,11 @@
             document.body.appendChild(buttonDiv);
         });
 
-        // var labels = {}
-        // Array.from(document.getElementsByClassName('game-labels')).forEach(label => {
-        //     labelText = label.innerHTML;
-        //     labels[label.id] = labelText;
-        // });
-
-        // function limitTextLength(text, maxLength) {
-        //     Array.from(document.getElementsByClassName('game-labels')).forEach(label => {
-        //         if (label.textContent.length >= 18) {
-        //             var fullText = label.innerHTML;
-        //             label.innerHTML = fullText.substring(0, 15) + '...';
-        //         }
-        //     });
-        // }
-
-        // Array.from(document.getElementsByClassName('game-button')).forEach(button => {
-        //     button.addEventListener('mouseover', () => {
-        //         button.style.transform = 'scale(0.95)';
-        //         button.style.boxShadow = '0 0 10px #4d664d';
-        //         currentButton = button.id;
-        //         var label = document.getElementById('label-' + currentButton);
-        //         var labelBox = document.getElementById('label-box-' + currentButton);
-        //         labelBox.style.height = '100px';
-        //         label.innerHTML = labels[label.id];
-        //     });
-        //     button.addEventListener('mouseout', () => {
-        //         button.style.transform = 'scale(1)';
-        //         button.style.boxShadow = 'none';
-        //         var labelBox = document.getElementById('label-box-' + button.id);
-        //         labelBox.style.height = '20px';
-        //         limitTextLength();
-        //     });
-        // });
-
         // function gameLoop() {
 
         //     requestAnimationFrame(gameLoop);
         // }
 
-        limitTextLength();
         // gameLoop();
 
     </script>
