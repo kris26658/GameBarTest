@@ -1,0 +1,95 @@
+<%- include('../../partials/header') %>
+
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'icon';
+        link.type = 'image/png';
+        link.href = '/stack/logoStack.png';
+        document.head.appendChild(link);
+    </script>
+
+    <head>
+        <title>Gamebar - Stack</title>
+    </head>
+    <style>
+        #partials-header-version {
+            right: 860px;
+            top: 29px;
+        }
+
+        .stackParas {
+            color: #4d664d;
+            display: block;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+        }
+
+        #bigbox {
+            display: flex;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #dialogueBox {
+            width: 250px;
+            height: 350px;
+            margin-top: 10px;
+            padding: 10px;
+            border: solid 1px #4d664d;
+            background-color: #172222;
+        }
+
+        canvas {
+            margin: 10px;
+            border: solid 1px #4d664d;
+            background-color: #172222;
+        }
+
+        .mode-buttons {
+            padding: 10px;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+            color: #4d664d;
+            background-color: transparent;
+            border: solid 1px #4d664d;
+            cursor: pointer;
+        }
+
+        #modeSelection {
+            display: block;
+            align-items: center;
+        }
+
+        #modeButtons {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #message {
+            margin-top: 20px;
+        }
+    </style>
+
+    <body>
+        <div id="bigbox">
+            <div id="dialogueBox">
+                <p id="points" class="stackParas"></p>
+                <p id="perfectCounter" class="stackParas"></p>
+                <div id="modeSelection">
+                    <p class="stackParas">Choose a mode:</p>
+                    <div id="modeButtons">
+                        <button class="mode-buttons" onclick="chooseMode('easy')">Easy</button>
+                        <button class="mode-buttons" onclick="chooseMode('normal')">Normal</button>
+                        <button class="mode-buttons" onclick="chooseMode('hard')">Hard</button>
+                    </div>
+                </div>
+                <p id="modeDisplay" class="stackParas"></p>
+                <p id="message" class="stackParas"></p>
+            </div>
+            <canvas id="canvas" width="1600" height="800"></canvas>
+        </div>
+
+    </body>
+    <script type="text/javascript" src="/stack/stack.js"></script>
+
+    </html>
