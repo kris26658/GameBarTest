@@ -10,85 +10,6 @@
 
     <head>
         <title>Gamebar - Home</title>
-        <style>
-            ::-webkit-scrollbar {
-                width: 0px;
-            }
-
-            .game-button {
-                width: 150px;
-                height: 150px;
-                background-color: #172222;
-                border: solid 1px #4d664d;
-                border-radius: 5px;
-                cursor: pointer;
-                margin: 5px;
-                padding: 0px;
-                overflow: hidden;
-                margin-top: 20px;
-                position: relative;
-                z-index: 1;
-                transition: transform 120ms ease, box-shadow 120ms ease;
-            }
-
-            .game-labels {
-                background-color: #0f0f0f;
-            }
-
-            .label-box {
-                width: 155px;
-                height: 20px;
-                text-align: center;
-                position: absolute;
-                white-space: normal;
-                overflow-wrap: break-word;
-                margin-bottom: 50px;
-                background-color: rgb(15, 15, 15, 0.5);
-                overflow: hidden;
-                pointer-events: none;
-                z-index: 3;
-                transition: height 120ms ease;
-            }
-
-            .button-divs {
-                display: inline-block;
-                position: relative;
-                vertical-align: top;
-            }
-
-            .button-images {
-                width: 150px;
-                height: 150px;
-                object-fit: cover;
-                border-radius: 5px;
-                pointer-events: none;
-                display: block;
-            }
-
-            #changelog {
-                width: 80px;
-                height: 80px;
-                border: solid 2px #4d664d;
-                border-radius: 40px;
-                transition: transform 120ms ease, box-shadow 120ms ease;
-            }
-
-            #changelog img {
-                width: 80px;
-                height: 80px;
-            }
-
-            #changelog-button-div {
-                position: absolute;
-                bottom: 30px;
-                left: 20px;
-            }
-
-            #partials-header-version {
-                right: 840px;
-                top: 29px;
-            }
-        </style>
     </head>
 
     <body>
@@ -100,6 +21,7 @@
         </div>
 
     </body>
+    
     <script>
         function Button(route, img, text) {
             this.route = route;
