@@ -8,15 +8,15 @@
 </head>
 
 <body>
-    <div>
-        <a href='/' id="partials-header-logo">
-            <h1 class='partials-header' id="partials-header-title"><%- pageName %></h1>
-            <div id="partials-header-version"><%- version %></div>
-        </a>
-        <p class='partials-header' id="partials-header-user">Logged in as <%- user %></p><button class="partials-header"
-            id="partials-header-logout-button" onclick="location.href='/logout'">Logout</button>
-        <hr class='partials-header' id="partials-header-hr" />
+    <div id="header-user-container">
+        <p id="header-user">Logged in as <%- user %></p><button id="header-logout-button"
+            onclick="location.href='/logout'">Logout</button>
     </div>
+    <a href='/' id="header-logo">
+        <h1 id="header-title"><%- pageName %></h1>
+    </a>
+    <div id="header-version"><%- version %></div>
+    <hr id="header-hr" />
 </body>
 
 <script>

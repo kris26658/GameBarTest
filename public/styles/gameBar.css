@@ -1,4 +1,3 @@
-/* Corrected Styles */
 :root {
     /* GameBar Colors */
     --background-black: #0f0f0f;
@@ -38,7 +37,6 @@ body {
     font-family: Arial, sans-serif;
     color: var(--text-green);
     text-shadow: 2px 2px 3px var(--shadow-green);
-    font-weight: bold;
     background-color: var(--background-black)
 }
 
@@ -47,7 +45,19 @@ h3 {
 }
 
 button {
+    width: 150px;
+    padding: 0;
+    cursor: pointer;
     font-family: inherit;
+    color: var(--text-green);
+    background-color: var(--button-gray);
+    border: solid 1px var(--border-green);
+    border-radius: 5px;
+}
+
+a {
+    color: var(--text-green);
+    text-decoration: none;
 }
 
 ::-webkit-scrollbar {
@@ -56,53 +66,44 @@ button {
 
 /* HEADER */
 
-.partials-header {
-    color: var(--text-green);
+#header-user-container {
+    position: absolute;
 }
 
-#partials-header-hr {
-    border: 1px solid;
+#header-user {
+    display: inline-flex;
+    margin: 7px;
+}
+
+#header-logout-button {
+    width: fit-content;
+    margin: 7px;
+    padding: 5px 10px;
+}
+
+#header-logo {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    text-shadow: 2px 2px 3px var(--shadow-green);
+}
+
+#header-title {
+    font-size: 2em;
+    margin: 0;
+}
+
+#header-version {
+    font-size: 0.9em;
+    margin-left: 8px;
+    margin-top: 16px;
+}
+
+#header-hr {
+    border: 1px solid var(--border-green);
     box-shadow: 0px 0px 20px var(--shadow-green);
     margin-top: 12px;
     margin-bottom: 20px;
-}
-
-#partials-header-title {
-    text-shadow: 0px 0px 20px var(--shadow-green);
-    font-size: 2em;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 5px;
-}
-
-#partials-header-user {
-    margin: 7px;
-    font-weight: 100;
-    display: inline-flex;
-}
-
-#partials-header-logout-button {
-    margin: 7px;
-    padding: 5px 10px;
-    background-color: var(--background-black);
-    border: solid 1px var(--border-green);
-    border-radius: 5px;
-    cursor: pointer;
-    display: inline-flex;
-}
-
-#partials-header-version {
-    position: absolute;
-    font-size: 0.9em;
-    font-weight: 100;
-    right: 840px;
-    top: 29px;
-}
-
-#partials-header-logo {
-    text-decoration: none;
-    color: inherit;
 }
 
 /* CHANGES */
@@ -112,7 +113,7 @@ button {
 }
 
 .changelog-dropdown {
-    background-color: #172222;
+    background-color: var(--container-gray);
     border: solid 1px var(--border-green);
     border-radius: 5px;
     padding: 10px;
@@ -127,17 +128,17 @@ button {
 
 /* INDEX */
 
-.game-button {
-    width: 150px;
-    height: 150px;
-    background-color: var(--button-gray);
-    border: solid 1px var(--border-green);
-    border-radius: 5px;
-    cursor: pointer;
+#games-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
     margin: 5px;
-    padding: 0px;
-    overflow: hidden;
+}
+
+.game-button {
+    height: 150px;
     margin-top: 20px;
+    overflow: hidden;
     position: relative;
     z-index: 1;
     transition: transform 120ms ease, box-shadow 120ms ease;
@@ -146,29 +147,15 @@ button {
 .label-box {
     width: 155px;
     height: 20px;
+    font-weight: bold;
     text-align: center;
     position: absolute;
     white-space: normal;
     overflow-wrap: break-word;
     margin-bottom: 50px;
     background-color: var(--background-black);
-    overflow: hidden;
-    pointer-events: none;
     z-index: 3;
     transition: height 120ms ease;
-}
-
-.button-divs {
-    display: inline-block;
-    position: relative;
-    vertical-align: top;
-}
-
-.button-images {
-    object-fit: cover;
-    border-radius: 5px;
-    pointer-events: none;
-    display: block;
 }
 
 #changelog {
@@ -193,13 +180,8 @@ button {
 /* PAGE */
 
 #button {
-    width: 150px;
     height: 50px;
     object-position: center;
-    background-color: var(--button-gray);
-    border: solid 1px var(--border-green);
-    border-radius: 5px;
-    cursor: pointer;
     overflow: hidden;
     color: var(--text-green);
     text-shadow: 2px 2px 3px var(--shadow-green);

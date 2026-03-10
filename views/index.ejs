@@ -14,6 +14,8 @@
 
     <body>
 
+        <div id="games-container"></div>
+
         <!-- CHANGELOG BUTTON -->
         <div id="changelog-button-div">
             <button class="game-button" id="changelog" onclick="location.href='/changes'"><img
@@ -44,16 +46,16 @@
             new Button('#', 'index/postponed.png', 'Uno'),
         ];
 
+        const gamesContainer = document.getElementById('games-container');
+
         buttons.forEach(button => {
             var buttonDiv = document.createElement('div');
-            buttonDiv.className = 'button-divs';
 
             var buttonElement = document.createElement('button');
             buttonElement.className = 'game-button';
             buttonElement.onclick = () => location.href = button.route;
 
             var imgElement = document.createElement('img');
-            imgElement.className = 'button-images';
             imgElement.src = button.img;
             buttonElement.appendChild(imgElement);
 
@@ -86,11 +88,7 @@
                 labelBox.style.height = '20px';
                 label.innerHTML = button.text;
             });
-
-
-
-
-            document.body.appendChild(buttonDiv);
+            gamesContainer.appendChild(buttonDiv);
         });
 
         let changeLogButton = document.getElementById('changelog');
@@ -102,14 +100,6 @@
             changeLogButton.style.transform = 'scale(1)';
             changeLogButton.style.boxShadow = 'none';
         });
-
-        // function gameLoop() {
-
-        //     requestAnimationFrame(gameLoop);
-        // }
-
-        // gameLoop();
-
     </script>
 
     </html>
